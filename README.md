@@ -69,3 +69,35 @@ that are useful in a pin cab environment:
   title of each game it launches, which lets PinVol display the
   friendly game title instead of just the filename.
 
+
+## Cross-platform Qt version
+
+The repository now contains an experimental Qt/QML port in the `PinVolQt`
+subdirectory. This version aims to run on Windows, macOS and Linux.
+
+### Build instructions
+
+1. Install Qt 6 and CMake 3.14 or newer.
+2. Create a build directory and run CMake:
+
+   ```bash
+   cd PinVolQt
+   cmake -B build -DCMAKE_BUILD_TYPE=Release
+   cmake --build build
+   ```
+3. The resulting binary will be placed in `build` (or `build/bin` on
+   Windows).
+
+### Running
+
+Execute the `PinVolQt` binary. The application displays a simple window
+with a volume slider. Background operation is provided via the system
+tray when supported by the platform. On macOS and Linux you may need to
+explicitly allow the application to show the tray icon.
+
+### Background mode
+
+To run in the background, minimize the main window. On platforms that
+support a system tray, the application will remain accessible from the
+tray icon. Ensure your desktop environment allows tray icons for the app
+so volume hotkeys remain active.
